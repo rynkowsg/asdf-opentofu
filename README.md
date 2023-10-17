@@ -6,21 +6,18 @@
 
 </div>
 
-# Contents
+## Contents
 
 - [Dependencies](#dependencies)
 - [Install](#install)
 - [Contributing](#contributing)
 - [License](#license)
 
-# Dependencies
+## Dependencies
 
-**TODO: adapt this section**
+- `bash`, `curl`, `unzip`: generic POSIX utilities.
 
-- `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
-
-# Install
+## Install
 
 Plugin:
 
@@ -49,12 +46,12 @@ opentofu --help
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
 
-# Contributing
+## Contributing
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/rynkowsg/asdf-opentofu/graphs/contributors)!
 
-# License
+## License
 
-See [LICENSE](LICENSE) © [Greg Rynkowski](https://github.com/rynkowsg/)
+Licensed under the [MIT license](LICENSE).
