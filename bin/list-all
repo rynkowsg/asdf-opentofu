@@ -1,11 +1,25 @@
 #!/usr/bin/env bash
 
+#
+#  Usage:
+#    asdf list-all opentofu
+#
+#  Usage as standalone:
+#    ./bin/list-all
+#
+#  To see debug logs use env var `DEBUG=true`.
+#
+
 set -euo pipefail
 
-current_script_path=${BASH_SOURCE[0]}
-plugin_dir=$(dirname "$(dirname "$current_script_path")")
+CURRENT_SCRIPT_PATH=${BASH_SOURCE[0]}
+PLUGIN_DIR=$(dirname "$(dirname "${CURRENT_SCRIPT_PATH}")")
 
-# shellcheck source=./lib/utils.bash
-source "${plugin_dir}/lib/utils.bash"
+# shellcheck source=./lib/common.bash
+source "${PLUGIN_DIR}/lib/versions.bash" # list_all_versions sort_versions
 
-list_all_versions | sort_versions | xargs echo
+main() {
+  list_all_versions | sort_versions | xargs echo
+}
+
+main "$@"
