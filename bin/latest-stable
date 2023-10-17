@@ -1,29 +1,49 @@
 #!/usr/bin/env bash
 
+#
+#  Usage:
+#    asdf latest opentofu
+#
+#  Usage as standalone:
+#    ./bin/latest-stable
+#
+#  To see debug logs use env var `DEBUG=true`.
+
 set -euo pipefail
 
-current_script_path=${BASH_SOURCE[0]}
-plugin_dir=$(dirname "$(dirname "$current_script_path")")
+CURRENT_SCRIPT_PATH=${BASH_SOURCE[0]}
+PLUGIN_DIR=$(dirname "$(dirname "$CURRENT_SCRIPT_PATH")")
 
-# shellcheck source=./lib/utils.bash
-. "${plugin_dir}/lib/utils.bash"
+# shellcheck source=./lib/common.bash
+source "${PLUGIN_DIR}/lib/common.bash" # GH_REPO
+# shellcheck source=./lib/log.bash
+source "${PLUGIN_DIR}/lib/log.bash" # log_debug_f
+# shellcheck source=./lib/versions.bash
+source "${PLUGIN_DIR}/lib/versions.bash" # list_all_versions sort_versions
 
-curl_opts=(-sI)
+latest_stable() {
+  local curl_opts=(-sI)
+  if [ -n "${GITHUB_API_TOKEN:-}" ]; then
+    curl_opts=("${curl_opts[@]}" -H "Authorization: token ${GITHUB_API_TOKEN}")
+  fi
 
-if [ -n "${GITHUB_API_TOKEN:-}" ]; then
-	curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
-fi
+  # curl of REPO/releases/latest is expected to be a 302 to another URL
+  # when no releases redirect_url="REPO/releases"
+  # when there are releases redirect_url="REPO/releases/tag/v<VERSION>"
+  redirect_url=$(curl "${curl_opts[@]}" "${GH_REPO}/releases/latest" | sed -n -e "s|^location: *||p" | sed -n -e "s|\r||p")
+  log_debug_f "redirect url: %s\n" "${redirect_url}"
+  local version
+  if [[ "${redirect_url}" == "${GH_REPO}/releases" ]]; then
+    version="$(list_all_versions | sort_versions | tail -n1 | xargs echo)"
+  else
+    version="$(printf "%s\n" "${redirect_url}" | sed 's|.*/tag/v\{0,1\}||')"
+  fi
 
-# curl of REPO/releases/latest is expected to be a 302 to another URL
-# when no releases redirect_url="REPO/releases"
-# when there are releases redirect_url="REPO/releases/tag/v<VERSION>"
-redirect_url=$(curl "${curl_opts[@]}" "$GH_REPO/releases/latest" | sed -n -e "s|^location: *||p" | sed -n -e "s|\r||p")
-version=
-printf "redirect url: %s\n" "$redirect_url" >&2
-if [[ "$redirect_url" == "$GH_REPO/releases" ]]; then
-	version="$(list_all_versions | sort_versions | tail -n1 | xargs echo)"
-else
-	version="$(printf "%s\n" "$redirect_url" | sed 's|.*/tag/v\{0,1\}||')"
-fi
+  printf "%s\n" "$version"
+}
 
-printf "%s\n" "$version"
+main() {
+  latest_stable
+}
+
+main "$@"
