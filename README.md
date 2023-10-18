@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-opentofu [![Build](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/build.yml/badge.svg)](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/build.yml) [![Lint](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml/badge.svg)](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml)
+# asdf-opentofu [![Build](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/test.yml/badge.svg)](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/test.yml) [![Lint](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml/badge.svg)](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml)
 
 [opentofu](https://opentofu.org/docs) plugin for the [asdf version manager](https://asdf-vm.com).
 
