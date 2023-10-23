@@ -19,15 +19,13 @@
 
 ## Install
 
-Plugin:
+Install plugin:
 
 ```shell
-asdf plugin add opentofu
-# or
 asdf plugin add opentofu https://github.com/rynkowsg/asdf-opentofu.git
 ```
 
-opentofu:
+Install opentofu:
 
 ```shell
 # Show all installable versions
@@ -40,7 +38,7 @@ asdf install opentofu latest
 asdf global opentofu latest
 
 # Now opentofu commands are available
-opentofu --help
+tofu --help
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
