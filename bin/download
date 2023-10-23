@@ -10,7 +10,7 @@
 set -euo pipefail
 
 CURRENT_SCRIPT_PATH=${BASH_SOURCE[0]}
-PLUGIN_DIR=$(dirname "$(dirname "$CURRENT_SCRIPT_PATH")")
+PLUGIN_DIR=$(dirname "$(dirname "${CURRENT_SCRIPT_PATH}")")
 
 # shellcheck source=./lib/common.bash
 source "${PLUGIN_DIR}/lib/common.bash" # GH_REPO
@@ -56,7 +56,7 @@ download_release() {
 
   local curl_opts=(-fsSL)
   if [ -n "${GITHUB_API_TOKEN:-}" ]; then
-    curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
+    curl_opts=("${curl_opts[@]}" -H "Authorization: token ${GITHUB_API_TOKEN}")
   fi
 
   local temp_zip_path="${temp_dir}/tofu.zip"
@@ -73,11 +73,11 @@ main() {
   [ -z "${ASDF_DOWNLOAD_PATH+x}" ] && fail "ASDF_DOWNLOAD_PATH is required"
   [ -z "${ASDF_INSTALL_VERSION+x}" ] && fail "ASDF_INSTALL_VERSION is required"
 
-  log_debug "ASDF_DOWNLOAD_PATH: $ASDF_DOWNLOAD_PATH"
-  log_debug "ASDF_INSTALL_VERSION: $ASDF_INSTALL_VERSION"
-  log_debug "TOOL_NAME: $TOOL_NAME"
+  log_debug "ASDF_DOWNLOAD_PATH: ${ASDF_DOWNLOAD_PATH}"
+  log_debug "ASDF_INSTALL_VERSION: ${ASDF_INSTALL_VERSION}"
+  log_debug "TOOL_NAME: ${TOOL_NAME}"
 
-  mkdir -p "$ASDF_DOWNLOAD_PATH"
+  mkdir -p "${ASDF_DOWNLOAD_PATH}"
   download_release "${ASDF_INSTALL_VERSION}" "${ASDF_DOWNLOAD_PATH}"
 }
 

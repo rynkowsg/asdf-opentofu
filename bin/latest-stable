@@ -12,7 +12,7 @@
 set -euo pipefail
 
 CURRENT_SCRIPT_PATH=${BASH_SOURCE[0]}
-PLUGIN_DIR=$(dirname "$(dirname "$CURRENT_SCRIPT_PATH")")
+PLUGIN_DIR=$(dirname "$(dirname "${CURRENT_SCRIPT_PATH}")")
 
 # shellcheck source=./lib/common.bash
 source "${PLUGIN_DIR}/lib/common.bash" # GH_REPO
