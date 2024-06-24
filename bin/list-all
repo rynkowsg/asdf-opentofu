@@ -2,9 +2,11 @@
 
 #
 #  Usage:
+#
 #    asdf list-all opentofu
 #
 #  Usage as standalone:
+#
 #    ./bin/list-all
 #
 #  To see debug logs use env var `DEBUG=true`.
