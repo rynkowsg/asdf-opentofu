@@ -2,7 +2,8 @@
 
 #
 #  Usage as standalone:
-#    ASDF_INSTALL_VERSION=1.6.0-alpha2 ASDF_INSTALL_TYPE=version ASDF_INSTALL_PATH=tmp-installs ASDF_DOWNLOAD_PATH=tmp-downloads ./bin/install
+#
+#    ASDF_DOWNLOAD_PATH=tmp-downloads ASDF_INSTALL_PATH=tmp-installs ASDF_INSTALL_TYPE=version ASDF_INSTALL_VERSION=1.6.0-alpha2 ./bin/install
 #
 #  It run it standalone, first the `bin/download` needs to be executed.
 #

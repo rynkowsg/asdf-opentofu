@@ -2,7 +2,8 @@
 
 #
 #  Usage as standalone:
-#    ASDF_INSTALL_VERSION=1.6.0-alpha2 ASDF_DOWNLOAD_PATH=tmp-downloads ./bin/download
+#
+#    ASDF_DOWNLOAD_PATH=tmp-downloads ASDF_INSTALL_VERSION=1.6.0-alpha2 ./bin/download
 #
 #  To see debug logs use env var `DEBUG=true`.
 #

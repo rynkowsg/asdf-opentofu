@@ -2,9 +2,11 @@
 
 #
 #  Usage:
+#
 #    asdf latest opentofu
 #
 #  Usage as standalone:
+#
 #    ./bin/latest-stable
 #
 #  To see debug logs use env var `DEBUG=true`.
