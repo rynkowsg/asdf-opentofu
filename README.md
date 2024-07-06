@@ -1,8 +1,11 @@
 <div align="center">
 
-# asdf-opentofu [![Build](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/test.yml/badge.svg)](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/test.yml) [![Lint](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml/badge.svg)](https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml)
+# asdf-opentofu
+[![GitHub Actions Test Status][ci-actions-test-badge]][ci-actions-test]
+[![GitHub Actions Lint Status][ci-actions-lint-badge]][ci-actions-lint]
+[![License][license-badge]][license]
 
-[opentofu](https://opentofu.org/docs) plugin for the [asdf version manager](https://asdf-vm.com).
+[opentofu][opentofu-website] plugin for the [asdf version manager][asdf-website].
 
 </div>
 
@@ -41,15 +44,21 @@ asdf global opentofu latest
 tofu --help
 ```
 
-Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
-install & manage versions.
+Check [asdf][asdf-repo] readme for more instructions on how to install & manage versions.
 
-## Contributing
-
-Contributions of any kind welcome! See the [contributing guide](contributing.md).
-
-[Thanks goes to these contributors](https://github.com/rynkowsg/asdf-opentofu/graphs/contributors)!
+For more information aboot OpenTofu check their [docs][opentofu-docs].
 
 ## License
 
-Licensed under the [MIT license](LICENSE).
+Licensed under the [MIT license][license].
+
+[asdf-repo]: https://github.com/asdf-vm/asdf
+[asdf-website]: https://asdf-vm.com
+[ci-actions-lint-badge]: https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml/badge.svg
+[ci-actions-lint]: https://github.com/rynkowsg/asdf-opentofu/actions/workflows/lint.yml
+[ci-actions-test-badge]: https://github.com/rynkowsg/asdf-opentofu/actions/workflows/test.yml/badge.svg
+[ci-actions-test]: https://github.com/rynkowsg/asdf-opentofu/actions/workflows/test.yml
+[license-badge]: https://img.shields.io/badge/license-MIT-lightgrey.svg
+[license]: LICENSE
+[opentofu-docs]: https://opentofu.org/docs
+[opentofu-website]: https://opentofu.org
